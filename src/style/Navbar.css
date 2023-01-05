@@ -31,7 +31,7 @@
 .header__top__right a {
     text-decoration: none;
     color: #fff;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
 }
 
 .header__top__right a:hover {
@@ -100,6 +100,27 @@
 }
 
 /* ================ main navbar styles =========== */
+.nav_logo {
+    display: none;
+}
+
+.nav_logo h1 a span {
+    font-size: 1.5rem;
+}
+
+.nav_logo h1 a i {
+    font-size: 2.2rem;
+}
+
+.nav_logo h1 a {
+    text-decoration: none;
+    color: #FFF;
+    font-weight: 700;
+}
+
+.nav_logo h1 {
+    line-height: 1.5rem;
+}
 
 .main__navbar {
     padding: 15px 0px;
@@ -168,6 +189,10 @@
     .header__middle,
     .nav__right {
         display: none;
+    }
+
+    .nav_logo {
+        display: block !important;
     }
 
     .mobile__menu {

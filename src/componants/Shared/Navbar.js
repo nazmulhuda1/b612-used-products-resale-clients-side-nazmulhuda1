@@ -47,11 +47,14 @@ const Navbar = () => {
                         <Col lg="6" md="6" sm="6">
                             <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
                                 <Link to="/login" className=" d-flex align-items-center gap-1">
-                                    <i class="ri-login-circle-line"></i> Login
+                                    <i class="ri-facebook-line"></i>
                                 </Link>
 
                                 <Link to="/signup" className=" d-flex align-items-center gap-1">
-                                    <i class="ri-user-line"></i> Register
+                                    <i class="ri-twitter-line"></i>
+                                </Link>
+                                <Link to="/signup" className=" d-flex align-items-center gap-1">
+                                    <i class="ri-youtube-line"></i>
                                 </Link>
                             </div>
                         </Col>
@@ -124,7 +127,16 @@ const Navbar = () => {
                         <span className="mobile__menu">
                             <i class="ri-menu-line" onClick={toggleMenu}></i>
                         </span>
-
+                        <div className="nav_logo">
+                            <h1>
+                                <Link to="/home" className=" d-flex align-items-center gap-2">
+                                    <i class="ri-car-line"></i>
+                                    <span>
+                                        Rent Car <br /> Service
+                                    </span>
+                                </Link>
+                            </h1>
+                        </div>
                         <div className="navigation" ref={menuRef} onClick={toggleMenu}>
                             <div className="menu">
                                 {navLinks.map((item, index) => (
@@ -141,12 +153,15 @@ const Navbar = () => {
                             </div>
                         </div>
 
-                        <div className="nav__right">
-                            <div className="search__box">
-                                <input type="text" placeholder="Search" />
-                                <span>
-                                    <i class="ri-search-line"></i>
-                                </span>
+                        <div className="nav__right_user">
+                            <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
+                                <Link to="/login" className=" d-flex align-items-center gap-1">
+                                    <i class="ri-login-circle-line"></i> Login
+                                </Link>
+
+                                <Link to="/signup" className=" d-flex align-items-center gap-1">
+                                    <i class="ri-user-line"></i> Register
+                                </Link>
                             </div>
                         </div>
                     </div>

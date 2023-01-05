@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import Helmet from '../componants/Shared/Helmet';
 import AboutSection from '../componants/UI/AboutSection';
+import BlogList from '../componants/UI/BlogList';
 import CarItem from '../componants/UI/CarItem';
 import FindCarForm from '../componants/UI/FindCarForm';
 import HeroSlider from '../componants/UI/HeroSlider';
@@ -53,6 +54,7 @@ const Home = () => {
                     </Row>
                 </Container>
             </section>
+
             {/* =========== car offer section ============= */}
             <section>
                 <Container>
@@ -68,6 +70,7 @@ const Home = () => {
                     </Row>
                 </Container>
             </section>
+
             {/* =========== testimonial section =========== */}
             <section>
                 <Container>
@@ -78,6 +81,21 @@ const Home = () => {
                         </Col>
 
                         <Testimonial />
+                    </Row>
+                </Container>
+            </section>
+
+
+            {/* =============== blog section =========== */}
+            <section>
+                <Container>
+                    <Row>
+                        <Col lg="12" className="mb-5 text-center">
+                            <h6 className="section__subtitle">Explore our blogs</h6>
+                            <h2 className="section__title">Latest Blogs</h2>
+                        </Col>
+
+                        <BlogList />
                     </Row>
                 </Container>
             </section>
