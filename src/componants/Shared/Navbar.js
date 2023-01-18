@@ -17,6 +17,10 @@ const navLinks = [
         display: "Blog",
     },
     {
+        path: "/about",
+        display: "About",
+    },
+    {
         path: "/contact",
         display: "Contact",
     },
@@ -39,7 +43,7 @@ const Navbar = () => {
                             <div className="header__top__left">
                                 <span>Need Help?</span>
                                 <span className="header__top__help">
-                                    <i class="ri-phone-fill"></i> +1-202-555-0149
+                                    <i className="ri-phone-fill"></i> +1-202-555-0149
                                 </span>
                             </div>
                         </Col>
@@ -47,14 +51,14 @@ const Navbar = () => {
                         <Col lg="6" md="6" sm="6">
                             <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
                                 <Link to="/login" className=" d-flex align-items-center gap-1">
-                                    <i class="ri-facebook-line"></i>
+                                    <i className="ri-facebook-line"></i>
                                 </Link>
 
                                 <Link to="/signup" className=" d-flex align-items-center gap-1">
-                                    <i class="ri-twitter-line"></i>
+                                    <i className="ri-twitter-line"></i>
                                 </Link>
                                 <Link to="/signup" className=" d-flex align-items-center gap-1">
-                                    <i class="ri-youtube-line"></i>
+                                    <i className="ri-youtube-line"></i>
                                 </Link>
                             </div>
                         </Col>
@@ -70,7 +74,7 @@ const Navbar = () => {
                             <div className="logo">
                                 <h1>
                                     <Link to="/home" className=" d-flex align-items-center gap-2">
-                                        <i class="ri-car-line"></i>
+                                        <i className="ri-car-line"></i>
                                         <span>
                                             Rent Car <br /> Service
                                         </span>
@@ -82,7 +86,7 @@ const Navbar = () => {
                         <Col lg="3" md="3" sm="4">
                             <div className="header__location d-flex align-items-center gap-2">
                                 <span>
-                                    <i class="ri-earth-line"></i>
+                                    <i className="ri-earth-line"></i>
                                 </span>
                                 <div className="header__location-content">
                                     <h4>Bangladesh</h4>
@@ -94,7 +98,7 @@ const Navbar = () => {
                         <Col lg="3" md="3" sm="4">
                             <div className="header__location d-flex align-items-center gap-2">
                                 <span>
-                                    <i class="ri-time-line"></i>
+                                    <i className="ri-time-line"></i>
                                 </span>
                                 <div className="header__location-content">
                                     <h4>Sunday to Friday</h4>
@@ -111,7 +115,7 @@ const Navbar = () => {
                         >
                             <button className="header__btn btn ">
                                 <Link to="/contact">
-                                    <i class="ri-phone-line"></i> Request a call
+                                    <i className="ri-phone-line"></i> Request a call
                                 </Link>
                             </button>
                         </Col>
@@ -125,12 +129,12 @@ const Navbar = () => {
                 <Container>
                     <div className="navigation__wrapper d-flex align-items-center justify-content-between">
                         <span className="mobile__menu">
-                            <i class="ri-menu-line" onClick={toggleMenu}></i>
+                            <i className="ri-menu-line" onClick={toggleMenu}></i>
                         </span>
                         <div className="nav_logo">
                             <h1>
                                 <Link to="/home" className=" d-flex align-items-center gap-2">
-                                    <i class="ri-car-line"></i>
+                                    <i className="ri-car-line"></i>
                                     <span>
                                         Rent Car <br /> Service
                                     </span>
@@ -156,13 +160,16 @@ const Navbar = () => {
                         <div className="nav__right_user">
                             <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
                                 <Link to="/login" className=" d-flex align-items-center gap-1">
-                                    <i class="ri-login-circle-line"></i> Login
+                                    <i className="ri-login-circle-line"></i> Login
                                 </Link>
 
                                 <Link to="/signup" className=" d-flex align-items-center gap-1">
-                                    <i class="ri-user-line"></i> Register
+                                    <i className="ri-user-line"></i> Register
                                 </Link>
                             </div>
+                            {/* <div className="userM">
+                                name
+                            </div> */}
                         </div>
                     </div>
                 </Container>

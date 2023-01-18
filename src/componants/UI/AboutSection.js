@@ -6,13 +6,7 @@ import aboutImg from "../../assets/all-images/cars-img/bmw-offer.png";
 const AboutSection = ({ aboutClass }) => {
     return (
         <section
-            className="about__section"
-            style={
-                aboutClass === "aboutPage"
-                    ? { marginTop: "0px" }
-                    : { marginTop: "280px" }
-            }
-        >
+            className="about__section">
             <Container>
                 <Row>
                     <Col lg="6" md="6">
@@ -30,24 +24,24 @@ const AboutSection = ({ aboutClass }) => {
 
                             <div className="about__section-item d-flex align-items-center">
                                 <p className="section__description d-flex align-items-center gap-2">
-                                    <i class="ri-checkbox-circle-line"></i> Lorem ipsum dolor sit
+                                    <i className="ri-checkbox-circle-line"></i> Lorem ipsum dolor sit
                                     amet.
                                 </p>
 
                                 <p className="section__description d-flex align-items-center gap-2">
-                                    <i class="ri-checkbox-circle-line"></i> Lorem ipsum dolor sit
+                                    <i className="ri-checkbox-circle-line"></i> Lorem ipsum dolor sit
                                     amet.
                                 </p>
                             </div>
 
                             <div className="about__section-item d-flex align-items-center">
                                 <p className="section__description d-flex align-items-center gap-2">
-                                    <i class="ri-checkbox-circle-line"></i> Lorem ipsum dolor sit
+                                    <i className="ri-checkbox-circle-line"></i> Lorem ipsum dolor sit
                                     amet.
                                 </p>
 
                                 <p className="section__description d-flex align-items-center gap-2">
-                                    <i class="ri-checkbox-circle-line"></i> Lorem ipsum dolor sit
+                                    <i className="ri-checkbox-circle-line"></i> Lorem ipsum dolor sit
                                     amet.
                                 </p>
                             </div>

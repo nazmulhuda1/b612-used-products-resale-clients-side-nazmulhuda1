@@ -2,43 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import Helmet from '../componants/Shared/Helmet';
 import AboutSection from '../componants/UI/AboutSection';
+import BecomeDriverSection from '../componants/UI/BecomeDriverSection';
 import BlogList from '../componants/UI/BlogList';
 import CarItem from '../componants/UI/CarItem';
-import FindCarForm from '../componants/UI/FindCarForm';
+// import FindCarForm from '../componants/UI/FindCarForm';
 import HeroSlider from '../componants/UI/HeroSlider';
 import ServicesList from '../componants/UI/ServicesList';
 import Testimonial from '../componants/UI/Testimonial';
 
 const Home = () => {
     const [carData, setCarData] = useState([])
-
     useEffect(() => {
-        fetch('carProduct.json')
+        fetch('http://localhost:5000/carProducts')
             .then(res => res.json())
-            .then(data => setCarData(data))
+            .then(data => setCarData(data.data))
     }, [])
-    console.log(carData)
     return (
         <Helmet title={"Home"}>
             {/* ============= hero section =========== */}
             <section className="p-0 hero__slider-section">
                 <HeroSlider />
 
-                <div className="hero__form">
-                    <Container>
-                        <Row className="form__row">
-                            <Col lg="4" md="4">
-                                <div className="find__cars-left">
-                                    <h2>Find your best car here</h2>
-                                </div>
-                            </Col>
 
-                            <Col lg="8" md="8" sm="12">
-                                <FindCarForm />
-                            </Col>
-                        </Row>
-                    </Container>
-                </div>
             </section>
             {/* =========== about section ================ */}
             <AboutSection />
@@ -65,12 +50,14 @@ const Home = () => {
                         </Col>
 
                         {carData.slice(0, 3).map((item) => (
-                            <CarItem item={item} key={item.id} />
+                            <CarItem item={item} key={item._id} />
                         ))}
+
                     </Row>
                 </Container>
             </section>
-
+            {/* ========= Become Driver Section */}
+            <BecomeDriverSection />
             {/* =========== testimonial section =========== */}
             <section>
                 <Container>
