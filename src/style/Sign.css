@@ -1,0 +1,124 @@
+.form_action {
+    background: url(../assets/all-images/login.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 80px;
+    margin: 0 auto;
+}
+
+.form_area {
+    /* width: 450px; */
+    margin: 0 auto;
+    background: #000d6b33;
+    border-radius: 10px;
+    box-shadow: 4px 8px 20px #3444bb94;
+}
+
+h3.form_title {
+    text-align: center;
+    font-size: 45px;
+    font-weight: 600;
+    color: #fff;
+    padding-top: 40px;
+}
+
+.form_action form {
+    display: grid;
+    grid-template-columns: auto;
+    padding: 40px 20px 80px;
+    grid-gap: 10px;
+    border-radius: 10px;
+}
+
+.formControl {
+    display: grid;
+    grid-template-columns: auto;
+
+}
+
+.formControl label {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.formControl input,
+.formControl select {
+    outline: none;
+    background: transparent;
+    border: 1px solid #b6b6b7;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 5px;
+    font-size: 18px;
+}
+
+.input-bg:focus {
+    background-color: none;
+}
+
+.formControl option {
+    background: #10013f;
+}
+
+.submit-btn {
+    background: #000d6b;
+    padding: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+a.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    /* border: 1px solid #fff; */
+    box-shadow: 3px 0px 10px #848384;
+    padding: 2px 20px;
+    border-radius: 5px;
+    background: #000d6b33;
+}
+
+a.social-btn img {
+    width: 25px;
+    height: auto;
+    margin-right: 10px;
+}
+
+a.social-btn span {
+    color: #fff;
+    font-size: 41px;
+    font-weight: 600;
+}
+
+.socila_submit {
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    grid-gap: 44px;
+    padding: 50px 0;
+}
+
+.row.form-aling {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+@media only screen and (max-width: 992px) {
+    .form_action {
+        padding: 10px;
+
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .form_action {
+        padding: 10px;
+
+    }
+}

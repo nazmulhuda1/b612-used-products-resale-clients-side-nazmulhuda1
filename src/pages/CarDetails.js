@@ -24,22 +24,9 @@ const CarDetails = () => {
         return <Loading />
     }
 
-    const caritem = singleCar?.data;
+    const caritem = singleCar.data;
     const { carName, imgUrl, price, rating, description, model, automatic, speed, gps, seatType, brand } = caritem;
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/carProducts/${id}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.success) {
-    //                 setSingleCar(data);
-    //             } else {
-    //                 toast.error(data.error);
-    //             }
-    //         })
-    //         .catch((err) => toast.error(err.message));
-
-    // }, [id])
     return (
         <Helmet title="details">
             <CommonSection title={carName} />

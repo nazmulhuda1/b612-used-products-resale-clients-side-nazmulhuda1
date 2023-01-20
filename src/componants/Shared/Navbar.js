@@ -76,7 +76,7 @@ const Navbar = () => {
                                     <Link to="/home" className=" d-flex align-items-center gap-2">
                                         <i className="ri-car-line"></i>
                                         <span>
-                                            Rent Car <br /> Service
+                                            Resale <br /> Car
                                         </span>
                                     </Link>
                                 </h1>
@@ -136,7 +136,7 @@ const Navbar = () => {
                                 <Link to="/home" className=" d-flex align-items-center gap-2">
                                     <i className="ri-car-line"></i>
                                     <span>
-                                        Rent Car <br /> Service
+                                        Resale<br />Car
                                     </span>
                                 </Link>
                             </h1>
@@ -167,9 +167,17 @@ const Navbar = () => {
                                     <i className="ri-user-line"></i> Register
                                 </Link>
                             </div>
-                            {/* <div className="userM">
-                                name
-                            </div> */}
+
+                            <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
+                                <Link to="/login" className=" d-flex align-items-center gap-1">
+                                    <i class="ri-dashboard-fill"></i> Dashboard
+                                </Link>
+
+                                <Link to="/signup" className=" d-flex align-items-center gap-1">
+                                    <img className='avater' src="https://p.kindpng.com/picc/s/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png" alt="User Avater" />
+                                </Link>
+                            </div>
+
                         </div>
                     </div>
                 </Container>

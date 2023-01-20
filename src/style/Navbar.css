@@ -91,7 +91,7 @@
     column-gap: 0.4rem;
     text-decoration: none;
     color: #fff;
-    justify-content: end;
+    /* justify-content: end; */
     font-size: 0.9rem;
 }
 
@@ -182,6 +182,15 @@
 .nav__active {
     color: #f9a826;
 }
+
+.avater {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: right;
+}
+
+
 
 @media only screen and (max-width: 768px) {
 
