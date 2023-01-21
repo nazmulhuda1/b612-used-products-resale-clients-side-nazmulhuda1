@@ -1,9 +1,10 @@
 import React from 'react';
+import BookingModel from '../componants/UI/BookingModel';
 
 const Blog = () => {
     return (
         <div>
-            Blog
+            <BookingModel></BookingModel>
         </div>
     );
 };

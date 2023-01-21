@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -9,22 +9,28 @@ import '../style/Sign.css'
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser } = useContext(AuthContext)
-    console.log(errors);
+    const { createUser, updateUser } = useContext(AuthContext)
+    const [signUpError, setSignUPError] = useState('');
 
+    // == handle sing up function
     const handleSignUp = (data) => {
+        setSignUPError('');
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                console.log(user)
-                toast.success('Create User Succussfully')
+                console.log(user);
+                updateUser()
+                    .then(() => {
+                        toast('User Created Successfully.')
+                    })
+                    .catch(err => console.log(err));
             })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
+            .catch(error => {
+                console.log(error)
+                setSignUPError(error.message)
             });
     }
+
 
     return (
         <Helmet title='Register'>
@@ -36,31 +42,22 @@ const SignUp = () => {
                                 <h3 className='form_title'>Register</h3>
                                 <form onSubmit={handleSubmit(handleSignUp)}>
                                     <div className="formControl">
-                                        <label>First Name</label>
-                                        <input type="text" className='input-bg' {...register("firstName", { required: true, maxLength: 80 })} />
+                                        <label> Full Name</label>
+                                        <input type="text" name='name' className='input-bg' {...register("name", { required: true, maxLength: 80 })} />
+                                        {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
                                     </div>
 
                                     <div className="formControl">
                                         <label>Email</label>
-                                        <input type="text" className='input-bg' {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
+                                        <input type="text" name='email' className='input-bg' {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
                                     </div>
                                     <div className="formControl">
                                         <label>Password</label>
-                                        <input type="password" className='input-bg' {...register("password", { required: true, pattern: /^\S+@\S+$/i })} />
-                                    </div>
-                                    <div className="formControl">
-                                        <label>Phone Number</label>
-                                        <input type="tel" className='input-bg' {...register("mobileNumber", { required: true, minLength: 6, maxLength: 12 })} />
-                                    </div>
-                                    <div className="formControl">
-                                        <select {...register("role", { required: true })}>
-                                            <option value="client">Client</option>
-                                            <option value="saler">Saler</option>
-                                            <option value="admin">Admin</option>
-                                        </select>
+                                        <input type="password" name='password' className='input-bg' {...register("password", { required: true, pattern: /^\S+@\S+$/i })} />
                                     </div>
 
                                     <input className='submit-btn' type="submit" />
+                                    {signUpError && <p className='text-red-600'>{signUpError}</p>}
                                 </form>
                             </div>
                         </Col>

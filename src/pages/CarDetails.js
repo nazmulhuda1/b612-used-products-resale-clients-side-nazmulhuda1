@@ -7,6 +7,7 @@ import BookingForm from '../componants/UI/BookingForm';
 import Loading from '../componants/UI/Loading';
 import PaymentMethod from '../componants/UI/PaymentMethod';
 import CommonSection from "../componants/UI/CommonSection";
+import FormModal from "../componants/UI/FormModal";
 
 const CarDetails = () => {
     const { id } = useParams()

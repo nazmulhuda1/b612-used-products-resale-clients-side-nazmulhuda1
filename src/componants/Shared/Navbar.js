@@ -1,7 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { Container, Row, Col } from "reactstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import "../../style/Navbar.css";
+import { AuthContext } from '../../Context/AuthProvider';
+import { toast } from 'react-toastify';
 
 const navLinks = [
     {
@@ -28,10 +30,56 @@ const navLinks = [
 
 ];
 
-const Navbar = () => {
-    const menuRef = useRef(null);
 
+const Navbar = () => {
+    // ==== Menu bar toggle
     const toggleMenu = () => menuRef.current.classList.toggle("menu__active");
+    // ========
+    const menuRef = useRef(null);
+    const { logOut, user, loading } = useContext(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/login';
+    // handle LogOut
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                toast.success("user logOut")
+                navigate(from, { replace: true });
+            })
+            .catch(err => console.log(err))
+    }
+
+    // ====== user Menu
+    const userMenu = <React.Fragment>
+        {
+            user?.uid ?
+                <>
+                    <Link to="/login" className=" d-flex align-items-center gap-1">
+                        <i class="ri-dashboard-fill"></i> Dashboard
+                    </Link>
+                    <Link to="/signup" className=" d-flex align-items-center gap-1">
+                        <img className='avater' src="https://p.kindpng.com/picc/s/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png" alt="User Avater" />
+                    </Link>
+                    <Link onClick={handleLogOut} to="/login" className=" d-flex align-items-center gap-1">
+                        <i class="ri-logout-circle-r-line"></i> LogOut
+                    </Link>
+                </> : <>
+                    <Link to="/login" className=" d-flex align-items-center gap-1">
+                        <i className="ri-login-circle-line"></i> Login
+                    </Link>
+
+                    <Link to="/signup" className=" d-flex align-items-center gap-1">
+                        <i className="ri-user-line"></i> Register
+                    </Link>
+                </>
+        }
+
+
+
+
+    </React.Fragment>
+
 
     return (
         <header className="header">
@@ -159,25 +207,8 @@ const Navbar = () => {
 
                         <div className="nav__right_user">
                             <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
-                                <Link to="/login" className=" d-flex align-items-center gap-1">
-                                    <i className="ri-login-circle-line"></i> Login
-                                </Link>
-
-                                <Link to="/signup" className=" d-flex align-items-center gap-1">
-                                    <i className="ri-user-line"></i> Register
-                                </Link>
+                                {userMenu}
                             </div>
-
-                            <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
-                                <Link to="/login" className=" d-flex align-items-center gap-1">
-                                    <i class="ri-dashboard-fill"></i> Dashboard
-                                </Link>
-
-                                <Link to="/signup" className=" d-flex align-items-center gap-1">
-                                    <img className='avater' src="https://p.kindpng.com/picc/s/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png" alt="User Avater" />
-                                </Link>
-                            </div>
-
                         </div>
                     </div>
                 </Container>

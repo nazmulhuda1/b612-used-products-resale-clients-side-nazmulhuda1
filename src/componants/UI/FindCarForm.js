@@ -5,9 +5,9 @@ import { Form, FormGroup } from "reactstrap";
 const FindCarForm = () => {
     return (
         <Form className="form">
-            <div className=" d-flex align-items-center justify-content-between flex-wrap">
-                <FormGroup className="form__group">
-                    <input type="text" placeholder="From address" required />
+            <div className="  align-items-center justify-content-between flex-wrap">
+                <FormGroup className="form__group d-block">
+                    <input type="text" placeholder="From address cla" required />
                 </FormGroup>
 
                 <FormGroup className="form__group">
@@ -33,9 +33,6 @@ const FindCarForm = () => {
                     </select>
                 </FormGroup>
 
-                <FormGroup className="form__group">
-                    <button className="btn find__car-btn">Find Car</button>
-                </FormGroup>
             </div>
         </Form>
     );

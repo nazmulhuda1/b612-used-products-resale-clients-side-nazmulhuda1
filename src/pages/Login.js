@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { Col, Container, Row } from 'reactstrap';
 import Helmet from '../componants/Shared/Helmet';
+import { AuthContext } from '../Context/AuthProvider';
 import '../style/Sign.css'
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    console.log(errors);
-    const handleLogin = () => {
+    const { logIn } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
+    const handleLogin = data => {
+        logIn(data.email, data.password)
+            .then(result => {
+                toast.success('Login Successfully')
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                const err = error.message
+                console.log(err)
+            })
 
     }
+
+
     return (
         <Helmet title='Login'>
             <section className='form_action'>
@@ -22,13 +38,16 @@ const Login = () => {
                                 <form onSubmit={handleSubmit(handleLogin)}>
                                     <div className="formControl">
                                         <label>Email</label>
-                                        <input type="text" className='input-bg' {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} />
+                                        <input type="text" className='input-bg' {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
                                     </div>
                                     <div className="formControl">
                                         <label>Password</label>
-                                        <input type="password" className='input-bg' {...register("Password", { required: true, pattern: /^\S+@\S+$/i })} />
+                                        <input type="password" className='input-bg' {...register("password", { required: true, pattern: /^\S+@\S+$/i })} />
+                                        <label className="label"> <span className="label-text">Forget Password?</span></label>
+                                        {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
                                     </div>
                                     <input className='submit-btn' type="submit" />
+
                                 </form>
                             </div>
                         </Col>
