@@ -25,7 +25,7 @@ const CarDetails = () => {
         return <Loading />
     }
 
-    const caritem = singleCar.data;
+    const caritem = singleCar;
     const { carName, imgUrl, price, rating, description, model, automatic, speed, gps, seatType, brand } = caritem;
 
     return (

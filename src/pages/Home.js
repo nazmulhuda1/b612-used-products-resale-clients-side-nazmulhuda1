@@ -15,7 +15,7 @@ const Home = () => {
     useEffect(() => {
         fetch('http://localhost:5000/carProducts')
             .then(res => res.json())
-            .then(data => setCarData(data.data))
+            .then(data => setCarData(data))
     }, [])
     return (
         <Helmet title={"Home"}>
